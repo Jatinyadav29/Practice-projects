@@ -1,0 +1,17 @@
+import express from "express";
+import cookieParser from "cookie-parser";
+import appRoute from "../routes/auth.route.js";
+
+const app = express();
+app.use(express.json());
+app.use(cookieParser());
+
+app.use("/api/auth", appRoute);
+
+app.get("/", (req, res) => {
+  return res.status(200).json({
+    message: "Hello world",
+  });
+});
+
+export default app;
